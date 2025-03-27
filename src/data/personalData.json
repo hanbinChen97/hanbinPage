@@ -1,0 +1,205 @@
+{
+    "main": {
+        "firstName": "Hanbin",
+        "name": "Hanbin Chen",
+        "occupation": "Computer Science Graduate | LLM Researcher",
+        "description": "Passionate about exploring the intersection of data science, process mining, and AI technologies",
+        "image": "hanbin-profile.jpg",
+        "bio": "Master's student in Computer Science at RWTH Aachen with research focus on Large Language Models for medical applications. Skilled in software development using Java and Kotlin with hands-on experience in building production-ready applications.",
+        "contactmessage": "Eager to apply academic knowledge to solve real-world challenges through innovative technology solutions.",
+        "email": "hanbin.9797@gmail.com",
+        "phone": "+49 15732636211",
+        "address": {
+            "city": "Aachen",
+            "state": "North Rhine-Westphalia",
+            "country": "Germany"
+        },
+        "website": "https://hanbinchen97.github.io/hanbin/",
+        "resumedownload": null,
+        "social": [
+            {
+                "name": "github",
+                "url": "https://github.com/hanbinChen97",
+                "className": "fa fa-github"
+            }
+        ]
+    },
+    "resume": {
+        "skillmessage": "Proficient in Python, Java, Kotlin, with expertise in AI, Machine Learning, and Large Language Models",
+        "education": [
+            {
+                "school": "RWTH Aachen University",
+                "degree": "Master of Science in Computer Science",
+                "graduated": "March 2025",
+                "description": "Specialized in Large Language Models and Medical Knowledge Extraction"
+            },
+            {
+                "school": "Fachhochschule Hannover (HsH)",
+                "degree": "Bachelor of Science in Applied Computer Science",
+                "graduated": "September 2020",
+                "description": "Strong foundation in Software Engineering and Computer Science"
+            }
+        ],
+        "work": [
+            {
+                "company": "MedAgent",
+                "title": "Frontend Developer (Student Assistant)",
+                "years": "March 2025",
+                "description": "Developed the frontend using TypeScript, ensuring a robust and scalable codebase. Designed interactive chat components using React, enhancing user interaction. Integrated internationalization (i18n) to support multiple languages including English, Chinese, and German. Structured the project with modular components for maintainability and scalability."
+            },
+            {
+                "company": "MedKGC (Medical Knowledge Graph Construction)",
+                "title": "Research Assistant",
+                "years": "May 2024 - March 2025",
+                "description": "Master thesis project focusing on leveraging Large Language Models (LLMs) for biomedical knowledge extraction. Developed an end-to-end pipeline for Named Entity Recognition (NER), Entity Normalization (NEN), and Relation Extraction. Experimented with state-of-the-art models including GPT, LLaMA, and BERT. Integrated UMLS (Unified Medical Language System) for medical entity normalization. Implemented advanced prompt engineering techniques for optimal model performance. Created knowledge graphs from extracted entities and relationships."
+            },
+            {
+                "company": "KlimDim (Adaptation of dimensioning to climate change)",
+                "title": "Student Assistant",
+                "years": "Unspecified",
+                "description": "Analyzed climate data with Python/Pandas and visualized results using Matplotlib/Seaborn. Utilized Git for version control and Docker for containerized development environment. Collaborated with research team to maintain data processing pipeline and documentation, implementing CI/CD workflows for automated testing."
+            }
+        ],
+        "skills": [
+            {
+                "name": "Python",
+                "level": "95%"
+            },
+            {
+                "name": "Java",
+                "level": "85%"
+            },
+            {
+                "name": "Kotlin",
+                "level": "80%"
+            },
+            {
+                "name": "React",
+                "level": "75%"
+            },
+            {
+                "name": "Machine Learning",
+                "level": "90%"
+            },
+            {
+                "name": "Large Language Models",
+                "level": "85%"
+            }
+        ],
+        "languages": [
+            {
+                "name": "English",
+                "level": "Fluent"
+            },
+            {
+                "name": "German",
+                "level": "B2"
+            },
+            {
+                "name": "Chinese",
+                "level": "Native"
+            }
+        ]
+    },
+    "portfolio": {
+        "projects": [
+            {
+                "title": "Trading Data Visualization Dashboard",
+                "category": "Web Application",
+                "year": "2025.03",
+                "image": "trading-dashboard.jpg",
+                "description": "Developed a responsive React financial dashboard with real-time data visualization using lightweight-charts, custom hooks, and optimized data processing. Ensured the dashboard was responsive and user-friendly.",
+                "technologies": [
+                    "React",
+                    "Lightweight Charts",
+                    "Custom Hooks"
+                ],
+                "url": null
+            },
+            {
+                "title": "Should I stay or should I go (Android App)",
+                "category": "Android Application",
+                "year": "2019.09 - 2020.09",
+                "image": "pub-recommendation-app.jpg",
+                "description": "Developed an Android application in Kotlin that provides personalized pub recommendations. Integrated Google Maps API and Location Services for real-time GPS tracking and geofencing. Implemented MVVM architecture using Android Jetpack components and data binding. Features RESTful API integration, JSON serialization/deserialization, and multi-language support. Includes unit testing with JUnit and Mockk, plus Android instrumentation tests.",
+                "details": [
+                    "Designed and developed a personalized pub recommendation Android app based on user dwell time",
+                    "Served as Scrum Master in a two-person development team, successfully delivering the project using Agile methodology",
+                    "Developed using Kotlin with MVVM architecture, implementing Test-Driven Development (TDD)",
+                    "Integrated Google Maps API for real-time location tracking and geofencing functionality",
+                    "Implemented RESTful API integration, JSON serialization/deserialization, and multi-language support"
+                ],
+                "technologies": [
+                    "Kotlin",
+                    "Android",
+                    "MVVM",
+                    "Google Maps API",
+                    "JUnit",
+                    "Mockk"
+                ],
+                "url": {
+                    "demo": "https://www.youtube.com/watch?v=Del5X4rqogw&ab_channel=egochen",
+                    "github": "https://github.com/JohannHalley/SISSI"
+                }
+            },
+            {
+                "title": "Connect Four (Java game)",
+                "category": "Desktop Game",
+                "year": "2018.09 - 2019.05",
+                "image": "connect-four-game.jpg",
+                "description": "Developed a Connect Four game in Java featuring multiple AI difficulty levels using MinMax algorithm and MVC architecture. The project showcases proficiency in Java, GUI development with Swing, design patterns implementation, and creating engaging user experiences.",
+                "details": [
+                    "Independently developed a two-player strategy board game using Java",
+                    "Implemented MVC architecture for clear separation of concerns and maintainable code structure",
+                    "Designed and integrated an AI opponent using the Minimax algorithm with alpha-beta pruning",
+                    "Implemented unit tests to ensure game logic reliability and correctness"
+                ],
+                "technologies": [
+                    "Java",
+                    "Swing",
+                    "MVC",
+                    "Minimax Algorithm",
+                    "Unit Testing"
+                ],
+                "url": "https://gitlab.com/hanbin.9797/viergewinnt"
+            },
+            {
+                "title": "MedKGC (Medical Knowledge Graph Construction)",
+                "category": "AI Research Project",
+                "year": "2024.05 - 2025.03",
+                "image": "med-knowledge-graph.jpg",
+                "description": "Master thesis project focusing on leveraging Large Language Models (LLMs) for biomedical knowledge extraction. Developed a comprehensive pipeline for Named Entity Recognition (NER), Entity Normalization (NEN), and Relation Extraction.",
+                "details": [
+                    "Developed an end-to-end pipeline for medical knowledge extraction from radiology reports using LLMs",
+                    "Implemented Named Entity Recognition and Relation Extraction using LLMs (GPT, LLaMA, BERT)",
+                    "Integrated UMLS for entity normalization",
+                    "Designed and implemented advanced prompt engineering techniques for optimal model performance",
+                    "Created interactive knowledge graphs for visualizing medical entities and relationships",
+                    "Evaluated and compared performance metrics of different LLM approaches for biomedical information extraction"
+                ],
+                "technologies": [
+                    "Python",
+                    "LLMs",
+                    "GPT",
+                    "LLaMA",
+                    "BERT",
+                    "UMLS",
+                    "Knowledge Graphs"
+                ],
+                "url": "https://huggingface.co/spaces/hanbinChen/medKGC"
+            }
+        ]
+    },
+    "testimonials": {
+        "testimonials": [
+            {
+                "text": "Exceptional researcher with deep understanding of Large Language Models and medical AI applications",
+                "user": "Academic Advisor"
+            },
+            {
+                "text": "Demonstrated strong technical skills and innovative approach to solving complex problems",
+                "user": "Research Colleague"
+            }
+        ]
+    }
+}

@@ -25,18 +25,14 @@ import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
-import testimonialImage from '../images/testimonial.webp';
+import profilepic from '../images/chen.jpeg';
 import {
   About,
-  ContactSection,
-  ContactType,
   Hero,
   HomepageMeta,
   PortfolioItem,
   SkillGroup,
   Social,
-  TestimonialSection,
   TimelineItem,
 } from './dataDef';
 
@@ -44,8 +40,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Hanbin Chen - Personal Portfolio',
+  description: "Hanbin Chen's personal portfolio and resume",
 };
 
 /**
@@ -54,12 +50,10 @@ export const homePageMeta: HomepageMeta = {
 export const SectionId = {
   Hero: 'hero',
   About: 'about',
-  Contact: 'contact',
   Portfolio: 'portfolio',
   Resume: 'resume',
   Skills: 'skills',
   Stats: 'stats',
-  Testimonials: 'testimonials',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -69,18 +63,16 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `I'm Hanbin Chen.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm a <strong className="text-stone-100">Computer Science Graduate</strong> and <strong className="text-stone-100">LLM Researcher</strong>, 
+        passionate about exploring the intersection of data science, process mining, and AI technologies.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        Master's student at <strong className="text-stone-100">RWTH Aachen</strong> with research focus on 
+        <strong className="text-stone-100"> Large Language Models</strong> for medical applications.
       </p>
     </>
   ),
@@ -91,11 +83,6 @@ export const heroData: Hero = {
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
   ],
 };
 
@@ -104,16 +91,14 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `Master's student in Computer Science at RWTH Aachen with research focus on Large Language Models for medical applications. Skilled in software development using Java and Kotlin with hands-on experience in building production-ready applications.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Location', text: 'Aachen, Germany', Icon: MapIcon},
+    {label: 'Email', text: 'hanbin.9797@gmail.com', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Chinese', Icon: FlagIcon},
+    {label: 'Interests', text: 'AI, Machine Learning, Medical Applications', Icon: SparklesIcon},
+    {label: 'Study', text: 'RWTH Aachen University', Icon: AcademicCapIcon},
+    {label: 'Languages', text: 'English, German, Chinese', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -122,70 +107,70 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
+    name: 'Languages',
     skills: [
       {
         name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
         level: 9,
       },
       {
-        name: 'Typescript',
-        level: 7,
+        name: 'German',
+        level: 6,
       },
       {
-        name: 'GraphQL',
-        level: 6,
+        name: 'Chinese',
+        level: 10,
       },
     ],
   },
   {
-    name: 'Backend development',
+    name: 'Programming Languages',
     skills: [
       {
-        name: 'Node.js',
+        name: 'Python',
+        level: 9,
+      },
+      {
+        name: 'Java',
         level: 8,
       },
       {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
+        name: 'Kotlin',
+        level: 8,
       },
     ],
   },
   {
-    name: 'Mobile development',
+    name: 'Technologies',
     skills: [
       {
-        name: 'React Native',
+        name: 'Large Language Models',
+        level: 8,
+      },
+      {
+        name: 'Machine Learning',
         level: 9,
       },
       {
-        name: 'Flutter',
-        level: 4,
+        name: 'React',
+        level: 7,
+      },
+    ],
+  },
+  {
+    name: 'Tools & Frameworks',
+    skills: [
+      {
+        name: 'Git',
+        level: 9,
       },
       {
-        name: 'Swift',
-        level: 3,
+        name: 'Docker',
+        level: 7,
+      },
+      {
+        name: 'UMLS',
+        level: 6,
       },
     ],
   },
@@ -196,70 +181,28 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Trading Data Visualization Dashboard',
+    description: 'Responsive React financial dashboard with real-time data visualization using lightweight-charts.',
+    url: '#',
     image: porfolioImage1,
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Should I stay or should I go (Android App)',
+    description: 'Android application in Kotlin that provides personalized pub recommendations using Google Maps API.',
+    url: 'https://github.com/JohannHalley/SISSI',
     image: porfolioImage2,
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Connect Four (Java game)',
+    description: 'Connect Four game in Java featuring multiple AI difficulty levels using MinMax algorithm and MVC architecture.',
+    url: 'https://gitlab.com/hanbin.9797/viergewinnt',
     image: porfolioImage3,
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'MedKGC (Medical Knowledge Graph Construction)',
+    description: 'Master thesis project focusing on leveraging Large Language Models for biomedical knowledge extraction.',
+    url: 'https://huggingface.co/spaces/hanbinChen/medKGC',
     image: porfolioImage4,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
-  },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
   },
 ];
 
@@ -268,106 +211,59 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'March 2025',
+    location: 'RWTH Aachen University',
+    title: 'Master of Science in Computer Science',
+    content: <p>Specialized in Large Language Models and Medical Knowledge Extraction.</p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'September 2020',
+    location: 'Fachhochschule Hannover (HsH)',
+    title: 'Bachelor of Science in Applied Computer Science',
+    content: <p>Strong foundation in Software Engineering and Computer Science.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'May 2024 - March 2025',
+    location: 'MedKGC (Medical Knowledge Graph Construction)',
+    title: 'Research Assistant',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Master thesis project focusing on leveraging Large Language Models (LLMs) for biomedical knowledge extraction.
+        Developed an end-to-end pipeline for Named Entity Recognition (NER), Entity Normalization (NEN), and Relation Extraction.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'March 2023 - Present',
+    location: 'MedAgent',
+    title: 'Frontend Developer (Student Assistant)',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Developed the frontend using TypeScript, ensuring a robust and scalable codebase. Designed interactive
+        chat components using React, enhancing user interaction. Integrated internationalization (i18n) to support
+        multiple languages including English, Chinese, and German.
+      </p>
+    ),
+  },
+  {
+    date: 'September 2021 - February 2023',
+    location: 'KlimDim (Adaptation of dimensioning to climate change)',
+    title: 'Student Assistant',
+    content: (
+      <p>
+        Analyzed climate data with Python/Pandas and visualized results using Matplotlib/Seaborn. 
+        Utilized Git for version control and Docker for containerized development environment.
       </p>
     ),
   },
 ];
 
 /**
- * Testimonial section
- */
-export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
-    {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-    {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
-    },
-  ],
-};
-
-/**
- * Contact section
- */
-
-export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
-  items: [
-    {
-      type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
-    },
-    {
-      type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
-    },
-    {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
-    },
-    {
-      type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
-    },
-  ],
-};
-
-/**
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/hanbinChen97'},
 ];
