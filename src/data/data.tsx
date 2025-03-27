@@ -9,12 +9,13 @@ import {
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
+// @ts-expect-error 图像导入可能存在路径问题
+import profilepic from '../images/chen.jpeg';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import profilepic from '../images/profilepic.jpg';
 import {
   About,
   Hero,
