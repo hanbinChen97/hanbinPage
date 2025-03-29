@@ -9,17 +9,15 @@ import {
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
-import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import GitLabIcon from '../components/Icon/GitLabIcon';
-// @ts-expect-error 图像导入可能存在路径问题
+import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import profilepic from '../images/chen.jpeg';
 import heroImage from '../images/header-background.webp';
+import medkgcImage from '../images/portfolio/medkgc.png';
 import playingImage from '../images/portfolio/playing.png';
+import sissiImage from '../images/portfolio/sissi.png';
 import tradingBoardImage from '../images/portfolio/tradingBoard.png';
 import vctEvaImage from '../images/portfolio/vctEva.png';
-import sissiImage from '../images/portfolio/sissi.png';
-import medkgcImage from '../images/portfolio/medkgc.png';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import {
   About,
   Hero,
