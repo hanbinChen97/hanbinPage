@@ -9,12 +9,16 @@ import {
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
+import LinkedInIcon from '../components/Icon/LinkedInIcon';
+import GitLabIcon from '../components/Icon/GitLabIcon';
 // @ts-expect-error 图像导入可能存在路径问题
 import profilepic from '../images/chen.jpeg';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+import playingImage from '../images/portfolio/playing.png';
+import tradingBoardImage from '../images/portfolio/tradingBoard.png';
+import vctEvaImage from '../images/portfolio/vctEva.png';
+import sissiImage from '../images/portfolio/sissi.png';
+import medkgcImage from '../images/portfolio/medkgc.png';
 import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import {
   About,
@@ -68,7 +72,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: 'https://drive.google.com/file/d/1F77-z-uWKJuufsgtMDd8v-5hKq_nca44/view?usp=sharing',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -171,28 +175,34 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Trading Data Visualization Dashboard',
-    description: 'Responsive React financial dashboard with real-time data visualization using lightweight-charts.',
-    url: '#',
-    image: porfolioImage1,
-  },
-  {
-    title: 'Should I stay or should I go (Android App)',
-    description: 'Android application in Kotlin that provides personalized pub recommendations using Google Maps API.',
-    url: 'https://github.com/JohannHalley/SISSI',
-    image: porfolioImage2,
+    title: 'MedKGC (Medical Knowledge Graph Construction)',
+    description: 'Master thesis project leveraging LLMs for biomedical knowledge extraction with NER, Entity Normalization, and Relation Extraction.',
+    url: 'https://huggingface.co/spaces/hanbinChen/medKGC',
+    image: medkgcImage,
   },
   {
     title: 'Connect Four (Java game)',
     description: 'Connect Four game in Java featuring multiple AI difficulty levels using MinMax algorithm and MVC architecture.',
     url: 'https://gitlab.com/hanbin.9797/viergewinnt',
-    image: porfolioImage3,
+    image: playingImage,
   },
   {
-    title: 'MedKGC (Medical Knowledge Graph Construction)',
-    description: 'Master thesis project focusing on leveraging Large Language Models for biomedical knowledge extraction.',
-    url: 'https://huggingface.co/spaces/hanbinChen/medKGC',
-    image: porfolioImage4,
+    title: 'Trading Data Visualization Dashboard',
+    description: 'Responsive React financial dashboard with real-time data visualization using lightweight-charts.',
+    url: 'https://github.com/hanbinChen97/react-ranking-page',
+    image: tradingBoardImage,
+  },
+  {
+    title: 'VCTEVA (Esports Manager Challenge)',
+    description: 'A chatbot system using LLMs and RAG for Valorant esports data analysis, player stats, and team building.',
+    url: 'https://github.com/Kleinpenny/VCTEVA',
+    image: vctEvaImage,
+  },
+  {
+    title: 'Should I stay or should I go (Android App)',
+    description: 'Android application in Kotlin that provides personalized pub recommendations using Google Maps API.',
+    url: 'https://github.com/JohannHalley/SISSI',
+    image: sissiImage,
   },
 ];
 
@@ -256,4 +266,6 @@ export const experience: TimelineItem[] = [
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/hanbinChen97'},
+  {label: 'GitLab', Icon: GitLabIcon, href: 'https://gitlab.com/hanbin.9797'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/hanbin-chen/'},
 ];
