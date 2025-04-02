@@ -10,6 +10,7 @@ import {
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import GitLabIcon from '../components/Icon/GitLabIcon';
+import HuggingfaceIcon from '../components/Icon/HuggingfaceIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import profilepic from '../images/chen.jpeg';
 import heroImage from '../images/header-background.webp';
@@ -70,7 +71,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'https://drive.google.com/file/d/1F77-z-uWKJuufsgtMDd8v-5hKq_nca44/view?usp=sharing',
+      href: 'https://drive.google.com/file/d/1L9AfV6ekzAuFAZCJEGYCx5dfL9u_j7JJ/view?usp=sharing',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -266,4 +267,5 @@ export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/hanbinChen97'},
   {label: 'GitLab', Icon: GitLabIcon, href: 'https://gitlab.com/hanbin.9797'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/hanbin-chen/'},
+  {label: 'Hugging Face', Icon: HuggingfaceIcon, href: 'https://huggingface.co/hanbinChen'},
 ];
