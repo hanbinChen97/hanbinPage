@@ -13,7 +13,7 @@ const HuggingfaceIcon: FC<IconProps> = memo(props => (
     <text
       dominantBaseline="middle"
       fill="currentColor"
-      fontSize="16"
+      fontSize="24"
       textAnchor="middle"
       x="50%"
       y="55%">
