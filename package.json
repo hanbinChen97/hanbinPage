@@ -3,13 +3,13 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "build": "yarn compile && yarn next build",
+    "build": "pnpm run compile && pnpm next build",
     "clean": "rm -rf build-tsc .next",
-    "compile": "yarn run -T tsc --build --verbose",
-    "dev": "yarn compile && yarn next dev",
-    "lint": "yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
-    "start": "yarn next start",
-    "sitemap": "yarn next-sitemap"
+    "compile": "pnpm tsc --build --verbose",
+    "dev": "pnpm run compile && pnpm next dev",
+    "lint": "pnpm prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && pnpm eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
+    "start": "pnpm next start",
+    "sitemap": "pnpm next-sitemap"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.16",
@@ -62,6 +62,5 @@
   },
   "resolutions": {
     "autoprefixer": "10.4.5"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  }
 }

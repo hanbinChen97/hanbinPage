@@ -14,22 +14,29 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          node-version: '18'
-          cache: 'yarn'
+          version: 10
+          run_install: true
+          cache-dependency-path: pnpm-lock.yaml
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # - name: Install dependencies
+      #   run: pnpm install --frozen-lockfile
 
       - name: Check dev command
         run: |
           # 只检查编译是否成功，不需要启动服务器
-          yarn compile && echo "Dev compilation successful"
+          pnpm run compile && echo "Dev compilation successful"
 
       - name: Check build command
-        run: yarn build
+        run: pnpm run build
 
       - name: Lint check
-        run: yarn lint
+        run: pnpm run lint
