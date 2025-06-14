@@ -1,29 +1,21 @@
 // src/pages/api/chat.ts
-import { OpenAIStream, StreamingTextResponse } from 'ai';
-import OpenAI from 'openai';
+import {openai} from "@ai-sdk/openai"; // Import the specific provider
+import {streamText} from "ai"; // Import streamText
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-// Set Next.js Edge Runtime
-export const runtime = 'edge';
+// Set Next.js Edge Runtime and max duration
+export const runtime = "edge";
+export const maxDuration = 30; // Allow streaming responses up to 30 seconds
 
 export default async function POST(req: Request) {
   // From the request, extract the messages
-  const { messages } = await req.json();
+  const {messages} = await req.json();
 
-  // Call the OpenAI API
-  const response = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo', // Or gpt-4
-    stream: true, // Enable streaming responses
+  // Call the OpenAI API using streamText
+  const result = await streamText({
+    model: openai("gpt-3.5-turbo"), // Specify the model via the OpenAI provider
     messages,
   });
 
-  // Convert the response into a friendly text stream
-  const stream = OpenAIStream(response);
-
-  // Respond with the stream
-  return new StreamingTextResponse(stream);
+  // Respond with the stream in the new data stream response format
+  return result.toDataStreamResponse();
 }

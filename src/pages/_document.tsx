@@ -1,4 +1,4 @@
-import {Head, Html, Main, NextScript} from 'next/document';
+import {Head, Html, Main, NextScript} from "next/document";
 
 // next/document <Head /> vs next/head <Head />
 //
