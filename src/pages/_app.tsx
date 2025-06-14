@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css';
 import '../globalStyles.scss';
+import { ChatWidget } from '@/components/ChatWidget'; // Ensure path is correct
 
 import type {AppProps} from 'next/app';
 import {memo} from 'react';
