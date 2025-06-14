@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic';
 import {FC, memo} from 'react';
 
+import {ChatWidget} from '@/components/ChatWidget';
+
 import Page from '../components/Layout/Page';
 import About from '../components/Sections/About';
 import Footer from '../components/Sections/Footer';
