@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState} from "react";
 
 interface WindowSize {
   width: number;
@@ -20,9 +20,9 @@ const useWindow = (): WindowSize => {
 
   // Set size at the first client-side load
   useEffect(() => {
-    window.addEventListener('resize', handleSize);
+    window.addEventListener("resize", handleSize);
     handleSize();
-    return () => window.removeEventListener('resize', handleSize);
+    return () => window.removeEventListener("resize", handleSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
