@@ -71,7 +71,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'https://drive.google.com/file/d/1L9AfV6ekzAuFAZCJEGYCx5dfL9u_j7JJ/view?usp=sharing',
+      href: 'https://github.com/hanbinChen97/hanbinChen97/raw/eaf42eb614134f799c9aee999d9885c1c5bbc438/resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
