@@ -15,16 +15,11 @@ import LinkedInIcon from "../components/Icon/LinkedInIcon";
 import {getTranslations} from "../i18n/translations";
 import profilepic from "../images/chen.jpeg";
 import heroImage from "../images/header-background.webp";
-import medkgcImage from "../images/portfolio/medkgc.png";
-import playingImage from "../images/portfolio/playing.png";
-import sissiImage from "../images/portfolio/sissi.png";
-import tradingBoardImage from "../images/portfolio/tradingBoard.png";
-import vctEvaImage from "../images/portfolio/vctEva.png";
+import {portfolioItems as portfolioItemsData} from "./data";
 import {
   About,
   Hero,
   HomepageMeta,
-  PortfolioItem,
   SkillGroup,
   Social,
   TimelineItem,
@@ -271,43 +266,9 @@ export function getLocalizedData(locale: string) {
   ];
 
   /**
-   * Portfolio section
+   * Portfolio section - using data from data.tsx
    */
-  const portfolioItems: PortfolioItem[] = [
-    {
-      title: "Medical Knowledge Graph Construction",
-      description:
-        "AI-powered medical knowledge graph construction and reasoning system",
-      url: "https://github.com/hanbinChen97",
-      image: medkgcImage,
-    },
-    {
-      title: "SISSI Chatbot",
-      description:
-        "Intelligent conversational AI system for healthcare support",
-      url: "https://github.com/hanbinChen97",
-      image: sissiImage,
-    },
-    {
-      title: "VCT Evaluation Platform",
-      description:
-        "Comprehensive evaluation platform for video game performance analysis",
-      url: "https://github.com/hanbinChen97",
-      image: vctEvaImage,
-    },
-    {
-      title: "Trading Board",
-      description: "Real-time trading dashboard with market analysis tools",
-      url: "https://github.com/hanbinChen97",
-      image: tradingBoardImage,
-    },
-    {
-      title: "Music Player",
-      description: "Modern music streaming application with social features",
-      url: "https://github.com/hanbinChen97",
-      image: playingImage,
-    },
-  ];
+  const portfolioItems = portfolioItemsData;
 
   /**
    * Resume section

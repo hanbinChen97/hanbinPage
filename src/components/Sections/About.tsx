@@ -4,6 +4,7 @@ import {FC, memo} from "react";
 
 import {getLocalizedData, SectionId} from "../../data/localizedData";
 import Section from "../Layout/Section";
+import ImageMarquee from "./ImageMarquee";
 
 interface AboutProps {
   locale: string;
@@ -52,6 +53,7 @@ const About: FC<AboutProps> = memo(({locale}) => {
           </ul>
         </div>
       </div>
+      <ImageMarquee />
     </Section>
   );
 });
