@@ -5,10 +5,7 @@ export interface Translations {
   };
   hero: {
     name: string;
-    description: {
-      intro: string;
-      education: string;
-    };
+    keywords: string[];
     resumeButton: string;
   };
   about: {
@@ -52,12 +49,15 @@ export const translations: Record<string, Translations> = {
     },
     hero: {
       name: "I'm Hanbin Chen.",
-      description: {
-        intro:
-          "I'm a Computer Science Graduate and LLM Researcher, passionate about exploring the intersection of data science, process mining, and AI technologies.",
-        education:
-          "Master's student at RWTH Aachen with research focus on Large Language Models for medical applications.",
-      },
+      keywords: [
+        "Computer Science Graduate",
+        "LLM Researcher",
+        "Data Science",
+        "Process Mining",
+        "AI Technologies",
+        "RWTH Aachen",
+        "Medical LLMs",
+      ],
       resumeButton: "Resume",
     },
     about: {
@@ -100,12 +100,15 @@ export const translations: Record<string, Translations> = {
     },
     hero: {
       name: "Ich bin Hanbin Chen.",
-      description: {
-        intro:
-          "Ich bin ein Informatik-Absolvent und LLM-Forscher, leidenschaftlich daran interessiert, die Schnittstelle zwischen Datenwissenschaft, Process Mining und KI-Technologien zu erkunden.",
-        education:
-          "Masterstudent an der RWTH Aachen mit Forschungsschwerpunkt auf Large Language Models für medizinische Anwendungen.",
-      },
+      keywords: [
+        "Informatik-Absolvent",
+        "LLM-Forscher",
+        "Data Science",
+        "Process Mining",
+        "KI-Technologien",
+        "RWTH Aachen",
+        "Medizinische LLMs",
+      ],
       resumeButton: "Lebenslauf",
     },
     about: {
@@ -148,11 +151,15 @@ export const translations: Record<string, Translations> = {
     },
     hero: {
       name: "我是陈汉镔。",
-      description: {
-        intro:
-          "我是一名计算机科学毕业生和大语言模型研究员，热衷于探索数据科学、流程挖掘和人工智能技术的交叉领域。",
-        education: "亚琛工业大学硕士生，研究重点是医疗应用中的大语言模型。",
-      },
+      keywords: [
+        "计算机科学",
+        "大语言模型研究",
+        "数据科学",
+        "流程挖掘",
+        "人工智能",
+        "亚琛工业大学",
+        "医疗场景",
+      ],
       resumeButton: "简历",
     },
     about: {

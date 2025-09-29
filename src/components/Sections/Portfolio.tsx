@@ -34,27 +34,10 @@ const Portfolio: FC<PortfolioProps> = memo(({locale}) => {
         <h2 className="self-center text-xl font-bold text-white">
           {t.portfolio.title}
         </h2>
-        <div className=" w-full columns-2 md:columns-3 lg:columns-4">
-          {portfolioItems.map((item, index) => {
-            const {title, image} = item;
-            return (
-              <div className="pb-6" key={`${title}-${index}`}>
-                <div
-                  className={classNames(
-                    "relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl",
-                  )}
-                >
-                  <Image
-                    alt={title}
-                    className="h-full w-full"
-                    placeholder="blur"
-                    src={image}
-                  />
-                  <ItemOverlay item={item} />
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid w-full grid-cols-1 gap-10 md:grid-cols-2">
+          {portfolioItems.map((item, index) => (
+            <PortfolioItemCard item={item} key={`${item.title}-${index}`} />
+          ))}
         </div>
       </div>
     </Section>
@@ -63,6 +46,36 @@ const Portfolio: FC<PortfolioProps> = memo(({locale}) => {
 
 Portfolio.displayName = "Portfolio";
 export default Portfolio;
+
+const PortfolioItemCard: FC<{ item: PortfolioItem }> = memo(({item}) => {
+  const {title, description, image} = item;
+
+  return (
+    <article className="flex flex-col gap-y-6">
+      <div
+        className={classNames(
+          "relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl shadow-black/40 lg:shadow-2xl",
+        )}
+      >
+        <Image
+          alt={title}
+          className="object-cover"
+          fill
+          placeholder="blur"
+          sizes="(min-width: 1280px) 40vw, (min-width: 768px) 45vw, 100vw"
+          src={image}
+        />
+        <ItemOverlay item={item} />
+      </div>
+      <div className="flex flex-col gap-y-2 text-white">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="text-sm leading-relaxed text-white/80">{description}</p>
+      </div>
+    </article>
+  );
+});
+
+PortfolioItemCard.displayName = "PortfolioItemCard";
 
 const ItemOverlay: FC<{ item: PortfolioItem }> = memo(
   ({item: {url, title, description}}) => {
