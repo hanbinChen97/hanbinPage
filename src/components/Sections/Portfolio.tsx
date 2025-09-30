@@ -16,7 +16,8 @@ import {
 
 import {isMobile} from "../../config";
 import {PortfolioItem} from "../../data/dataDef";
-import {getLocalizedData, SectionId} from "../../data/localizedData";
+import {SectionId} from "../../data/localizedData";
+import {portfolioItems} from "../../data/portfolio";
 import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
 import {getTranslations} from "../../i18n/translations";
 import Section from "../Layout/Section";
@@ -26,7 +27,6 @@ interface PortfolioProps {
 }
 
 const Portfolio: FC<PortfolioProps> = memo(({locale}) => {
-  const {portfolioItems} = getLocalizedData(locale);
   const t = getTranslations(locale);
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>

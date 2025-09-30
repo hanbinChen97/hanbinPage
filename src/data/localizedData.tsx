@@ -15,7 +15,6 @@ import LinkedInIcon from "../components/Icon/LinkedInIcon";
 import {getTranslations} from "../i18n/translations";
 import profilepic from "../images/chen.jpeg";
 import heroImage from "../images/header-background.webp";
-import {portfolioItems as portfolioItemsData} from "./data";
 import {
   About,
   Hero,
@@ -24,6 +23,7 @@ import {
   Social,
   TimelineItem,
 } from "./dataDef";
+import {portfolioItems as portfolioItemsData} from "./portfolio";
 
 /**
  * Section definition
@@ -216,7 +216,7 @@ export function getLocalizedData(locale: string) {
   ];
 
   /**
-   * Portfolio section - using data from data.tsx
+   * Portfolio section - using shared data from portfolio.ts
    */
   const portfolioItems = portfolioItemsData;
 

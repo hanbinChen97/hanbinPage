@@ -2,7 +2,7 @@
 
 本目录包含了个人网站的各个页面区域组件，每个组件负责不同的内容展示。
 
-## 组件概述
+## Overview
 
 ### Header.tsx
 网站顶部导航栏组件，包含以下功能：
@@ -34,72 +34,7 @@
 - **交互式遮罩层**：悬停或点击显示项目详情和外部链接
 - **移动端适配**：针对触摸设备优化的交互体验
 - **多语言支持**：使用 `getTranslations` 获取本地化文本
-
-#### 如何添加新的 Portfolio 项目
-
-要添加一个新的 Portfolio 卡片，需要按以下步骤操作：
-
-**1. 准备项目图片**
-- 将项目预览图放在 `/src/images/portfolio/` 目录下
-- 建议使用 `.png` 或 `.webp` 格式，尺寸建议为 4:3 比例
-- 文件名使用小驼峰命名，如：`myProjectImage.png`
-
-**2. 在 data.tsx 中导入图片**
-```tsx
-// 在文件顶部添加导入
-import myProjectImage from "../images/portfolio/myProjectImage.png";
-```
-
-**3. 在 portfolioItems 数组中添加新项目**
-```tsx
-export const portfolioItems: PortfolioItem[] = [
-  // ...existing items
-  {
-    title: "我的新项目",
-    description: "项目的详细描述，包括使用的技术栈和主要功能特点。",
-    url: "https://github.com/username/project-repo", // 项目链接
-    image: myProjectImage, // 导入的图片变量
-  },
-];
-```
-
-**4. PortfolioItem 接口定义**
-每个项目必须包含以下属性：
-- `title`: 项目标题（字符串）
-- `description`: 项目描述（字符串）
-- `url`: 项目链接，可以是 GitHub、演示网站等（字符串）
-- `image`: 项目预览图，可以是导入的静态图片或字符串路径
-
-**5. 多语言支持（可选）**
-如果需要支持多语言，可以在 `localizedData.tsx` 中为不同语言创建不同的项目描述：
-```tsx
-// 在 getLocalizedData 函数中根据 locale 返回不同的描述
-const portfolioDescriptions = {
-  en: "English description",
-  de: "German description", 
-  zh: "中文描述"
-};
-```
-
-**示例：添加一个完整的项目**
-```tsx
-// 1. 导入图片
-import chatbotImage from "../images/portfolio/chatbot.png";
-
-// 2. 在 portfolioItems 中添加
-{
-  title: "AI智能聊天机器人",
-  description: "使用 OpenAI GPT-4 构建的智能聊天机器人，支持多轮对话、上下文理解和个性化回复。采用 React + Node.js 全栈开发，集成 Redis 缓存和 PostgreSQL 数据库。",
-  url: "https://github.com/hanbinChen97/ai-chatbot",
-  image: chatbotImage,
-}
-```
-
-**注意事项：**
-- 图片文件大小建议控制在 500KB 以内，以保证页面加载速度
-- 项目描述建议控制在 100-200 字符，过长会影响卡片布局
-- URL 必须是有效的链接，建议使用 HTTPS
-- 新添加的项目会自动显示在 Portfolio 网格中，无需额外配置
+- **独立数据源**：从 `src/data/portfolio.ts` 读取项目数据，实现组件纯展示职责
 
 ### Resume/index.tsx
 简历区域主组件：
@@ -157,3 +92,70 @@ import chatbotImage from "../images/portfolio/chatbot.png";
 - 平滑的过渡动画
 - 响应式的悬停效果
 - 移动端友好的触摸交互
+
+## Portfolio
+### 如何添加新的 Portfolio 项目
+
+要添加一个新的 Portfolio 卡片，需要按以下步骤操作：
+
+**1. 准备项目图片**
+- 将项目预览图放在 `/src/images/portfolio/` 目录下
+- 建议使用 `.png` 或 `.webp` 格式，尺寸建议为 4:3 比例
+- 文件名使用小驼峰命名，如：`myProjectImage.png`
+
+**2. 在 `src/data/portfolio.ts` 中导入图片**
+```tsx
+// 在文件顶部添加导入
+import myProjectImage from "../images/portfolio/myProjectImage.png";
+```
+
+**3. 在 `src/data/portfolio.ts` 的 `portfolioItems` 数组中添加新项目**
+```tsx
+export const portfolioItems: PortfolioItem[] = [
+  // ...existing items
+  {
+    title: "我的新项目",
+    description: "项目的详细描述，包括使用的技术栈和主要功能特点。",
+    url: "https://github.com/username/project-repo", // 项目链接
+    image: myProjectImage, // 导入的图片变量
+  },
+];
+```
+
+**4. PortfolioItem 接口定义**
+每个项目必须包含以下属性：
+- `title`: 项目标题（字符串）
+- `description`: 项目描述（字符串）
+- `url`: 项目链接，可以是 GitHub、演示网站等（字符串）
+- `image`: 项目预览图，可以是导入的静态图片或字符串路径
+
+**5. 多语言支持（可选）**
+如果需要支持多语言，可以在 `localizedData.tsx` 中为不同语言创建不同的项目描述：
+```tsx
+// 在 getLocalizedData 函数中根据 locale 返回不同的描述
+const portfolioDescriptions = {
+  en: "English description",
+  de: "German description", 
+  zh: "中文描述"
+};
+```
+
+**示例：添加一个完整的项目**
+```tsx
+// 1. 导入图片
+import chatbotImage from "../images/portfolio/chatbot.png";
+
+// 2. 在 portfolioItems 中添加（src/data/portfolio.ts）
+{
+  title: "AI智能聊天机器人",
+  description: "使用 OpenAI GPT-4 构建的智能聊天机器人，支持多轮对话、上下文理解和个性化回复。采用 React + Node.js 全栈开发，集成 Redis 缓存和 PostgreSQL 数据库。",
+  url: "https://github.com/hanbinChen97/ai-chatbot",
+  image: chatbotImage,
+}
+```
+
+**注意事项：**
+- 图片文件大小建议控制在 500KB 以内，以保证页面加载速度
+- 项目描述建议控制在 100-200 字符，过长会影响卡片布局
+- URL 必须是有效的链接，建议使用 HTTPS
+- 新添加的项目会自动显示在 Portfolio 网格中，无需额外配置
