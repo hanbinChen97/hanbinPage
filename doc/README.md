@@ -82,7 +82,6 @@ src
 │   │   └── Resume
 │   │       ├── index.tsx       # Resume section component
 │   │       ├── ResumeSection.tsx # Resume section layout component
-│   │       ├── Skills.tsx      # Skills component
 │   │       └── TimelineItem.tsx # Timeline item component
 │   ├── Socials.tsx             # Socials component
 ├── data

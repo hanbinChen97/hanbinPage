@@ -9,14 +9,7 @@
 
 </div>
 
-## Project Structure
-
-The project is organized into several directories, including:
-
-- `pages`: This directory contains the Next.js pages for the application. Each file in this directory represents a route in the application.
-- `components`: This directory contains the React components used throughout the application. Components are reusable pieces of UI that can be used in multiple places in the application.
-
-## src Directory Structure
+##  Directory Structure
 
 The `src` directory contains the source code for the application. Here is a tree structure of the `src` directory with simple descriptions for important files:
 
@@ -42,7 +35,6 @@ src
 │   │   └── Resume
 │   │       ├── index.tsx       # Resume section component
 │   │       ├── ResumeSection.tsx # Resume section layout component
-│   │       ├── Skills.tsx      # Skills component
 │   │       └── TimelineItem.tsx # Timeline item component
 │   ├── Socials.tsx             # Socials component
 ├── data

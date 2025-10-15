@@ -1,3 +1,10 @@
+export interface TimelineItemData {
+  date: string;
+  location: string;
+  title: string;
+  keywords: string[];
+}
+
 export interface Translations {
   meta: {
     title: string;
@@ -23,14 +30,10 @@ export interface Translations {
   resume: {
     education: string;
     experience: string;
-    skills: string;
+    educationItems: TimelineItemData[];
+    experienceItems: TimelineItemData[];
   };
-  skills: {
-    programmingLanguages: string;
-    frameworks: string;
-    databases: string;
-    tools: string;
-  };
+
   footer: {
     copyright: string;
   };
@@ -76,13 +79,66 @@ export const translations: Record<string, Translations> = {
     resume: {
       education: "Education",
       experience: "Experience",
-      skills: "Skills",
-    },
-    skills: {
-      programmingLanguages: "Programming Languages",
-      frameworks: "Frameworks & Libraries",
-      databases: "Databases",
-      tools: "Tools & Technologies",
+      educationItems: [
+        {
+          date: "2020 - 2025",
+          location: "RWTH Aachen University",
+          title: "M.Sc. Computer Science",
+          keywords: [
+            "AI & Machine Learning Focus",
+            "Medical LLM Research",
+            "Knowledge Graph Construction",
+            "Healthcare NLP",
+          ],
+        },
+        {
+          date: "2017 - 2020",
+          location: "University of Applied Sciences",
+          title: "B.Sc. Computer Science",
+          keywords: [
+            "Process Mining Thesis",
+            "Healthcare Workflow Optimization",
+            "Software Engineering Fundamentals",
+            "Database Systems",
+            "Algorithm Design",
+          ],
+        },
+      ],
+      experienceItems: [
+        {
+          date: "2024 - Present",
+          location: "RWTH Aachen University",
+          title: "Research Assistant",
+          keywords: [
+            "Medical Knowledge Extraction",
+            "LLM Reasoning",
+            "Automated Knowledge Graphs",
+            "Clinical NLP Pipelines",
+          ],
+        },
+        {
+          date: "2023 - 2024",
+          location: "Tech Startup",
+          title: "Software Developer",
+          keywords: [
+            "Java Spring Boot Services",
+            "Kotlin Microservices",
+            "Database Integration",
+            "CI/CD Automation",
+          ],
+        },
+        {
+          date: "2022 - 2023",
+          location: "University Research Lab",
+          title: "Student Research Assistant",
+          keywords: [
+            "Process Mining Analysis",
+            "Python Tooling",
+            "Healthcare Data Insights",
+            "Academic Publications",
+          ],
+        },
+      ],
     },
     footer: {
       copyright: "All rights reserved.",
@@ -127,13 +183,66 @@ export const translations: Record<string, Translations> = {
     resume: {
       education: "Bildung",
       experience: "Erfahrung",
-      skills: "Fähigkeiten",
-    },
-    skills: {
-      programmingLanguages: "Programmiersprachen",
-      frameworks: "Frameworks & Bibliotheken",
-      databases: "Datenbanken",
-      tools: "Tools & Technologien",
+      educationItems: [
+        {
+          date: "2020 - 2025",
+          location: "RWTH Aachen University",
+          title: "M.Sc. Informatik",
+          keywords: [
+            "Schwerpunkt KI & Machine Learning",
+            "Forschung zu medizinischen LLMs",
+            "Wissensgraph-Aufbau",
+            "Healthcare NLP",
+          ],
+        },
+        {
+          date: "2017 - 2020",
+          location: "Fachhochschule",
+          title: "B.Sc. Informatik",
+          keywords: [
+            "Prozess-Mining Abschlussarbeit",
+            "Optimierung klinischer Abläufe",
+            "Software Engineering Grundlagen",
+            "Datenbanksysteme",
+            "Algorithmendesign",
+          ],
+        },
+      ],
+      experienceItems: [
+        {
+          date: "2024 - Heute",
+          location: "RWTH Aachen University",
+          title: "Wissenschaftlicher Mitarbeiter",
+          keywords: [
+            "Medizinische Wissensextraktion",
+            "LLM-Reasoning",
+            "Automatisierte Wissensgraphen",
+            "Klinische NLP-Pipelines",
+          ],
+        },
+        {
+          date: "2023 - 2024",
+          location: "Tech Startup",
+          title: "Softwareentwickler",
+          keywords: [
+            "Java Spring Boot Services",
+            "Kotlin Microservices",
+            "Datenbankintegration",
+            "CI/CD Automatisierung",
+          ],
+        },
+        {
+          date: "2022 - 2023",
+          location: "Universitäts-Forschungslabor",
+          title: "Studentische Hilfskraft",
+          keywords: [
+            "Prozess-Mining Analysen",
+            "Python Werkzeuge",
+            "Gesundheitsdaten Insights",
+            "Wissenschaftliche Publikationen",
+          ],
+        },
+      ],
     },
     footer: {
       copyright: "Alle Rechte vorbehalten.",
@@ -178,13 +287,66 @@ export const translations: Record<string, Translations> = {
     resume: {
       education: "教育",
       experience: "经验",
-      skills: "技能",
-    },
-    skills: {
-      programmingLanguages: "编程语言",
-      frameworks: "框架和库",
-      databases: "数据库",
-      tools: "工具和技术",
+      educationItems: [
+        {
+          date: "2020 - 2025",
+          location: "亚琛工业大学",
+          title: "计算机科学硕士",
+          keywords: [
+            "人工智能与机器学习方向",
+            "医疗大模型研究",
+            "知识图谱构建",
+            "医疗场景NLP",
+          ],
+        },
+        {
+          date: "2017 - 2020",
+          location: "应用科学大学",
+          title: "计算机科学学士",
+          keywords: [
+            "流程挖掘毕业课题",
+            "医疗流程优化",
+            "软件工程基础",
+            "数据库系统",
+            "算法设计",
+          ],
+        },
+      ],
+      experienceItems: [
+        {
+          date: "2024 - 至今",
+          location: "亚琛工业大学",
+          title: "科研助理",
+          keywords: [
+            "医疗知识抽取",
+            "大模型推理",
+            "自动化知识图谱",
+            "临床NLP流程",
+          ],
+        },
+        {
+          date: "2023 - 2024",
+          location: "科技初创公司",
+          title: "软件开发工程师",
+          keywords: [
+            "Java Spring Boot服务",
+            "Kotlin微服务",
+            "数据库集成",
+            "CI/CD自动化",
+          ],
+        },
+        {
+          date: "2022 - 2023",
+          location: "大学研究实验室",
+          title: "学生科研助理",
+          keywords: [
+            "流程挖掘分析",
+            "Python工具开发",
+            "医疗数据洞察",
+            "学术发表",
+          ],
+        },
+      ],
     },
     footer: {
       copyright: "版权所有。",

@@ -1,200 +1,191 @@
 # 数据组织指南 / Data Organization Guide
 
-本文档说明如何在此项目中组织和管理数据，以及如何将数据显示在网站上。
+本文档说明如何在此项目中组织和管理数据，以及数据如何在多语言环境下加载和显示。
+所有用户可见文本通过 translations.ts 管理
 
-## 文件结构 / File Structure
 
+## 📁 File Structure
+
+### 核心数据文件 / Core Data Files
 ```
-src/data/
-├── README.md              # 本文档
-├── dataDef.ts            # 类型定义
-├── data.tsx              # 主要数据配置 (非国际化)
-├── localizedData.tsx     # 国际化数据配置
-├── personalData.json     # 个人基础信息 (JSON格式)
-└── translations.ts       # 翻译文本
+src/
+├── data/
+│   ├── README.md              # 本文档
+│   ├── dataDef.ts            # TypeScript 类型定义
+│   ├── localizedData.tsx     # 多语言数据配置 (主要入口)
+│   └── portfolio.ts          # 项目展示数据 (语言无关)
+├── i18n/
+│   ├── request.ts            # Next.js 国际化配置
+│   └── translations.ts       # 翻译文本 & 简历数据
+├── images/
+│   ├── portfolio/            # 项目截图
+│   └── ...                   # 其他图片资源
+└── middleware.ts             # 路由语言处理
 ```
 
-## 数据流程 / Data Flow
+### 数据类型层次 / Data Type Hierarchy
+- **TypeScript 类型** (`dataDef.ts`): Hero, About, PortfolioItem, TimelineItem, Social
+- **翻译接口** (`translations.ts`): Translations, TimelineItemData
+- **数据入口** (`localizedData.tsx`): getLocalizedData() 函数
 
-### 1. 类型定义 (dataDef.ts)
-- 定义所有数据结构的 TypeScript 类型
-- 确保类型安全
-- 包含: Hero, About, PortfolioItem, TimelineItem, SkillGroup, Social 等类型
+## 🔄 Data Load Flow
 
-### 2. 主要数据配置 (data.tsx)
-- **用途**: 存储不需要国际化的数据
-- **内容**: portfolioItems, socialLinks, skills 等
-- **特点**: 
-  - 直接导入图片
-  - 包含静态配置数据
-  - 作为 localizedData.tsx 的数据源
+```mermaid
+graph TD
+    A[用户访问页面<br/>User visits page] --> B[middleware.ts]
+    
+    subgraph SSR["🖥️ Server-Side Rendering"]
+        B --> C{检查URL语言路径<br/>Check URL language path}
+        C -->|无语言路径<br/>No locale path| D[重定向到默认语言<br/>Redirect to default locale]
+        C -->|有语言路径<br/>Has locale path| E[i18n/request.ts]
+        D --> E
+        E --> F[加载 translations.ts<br/>Load translations.ts]
+        F --> G[getTranslations]
+        G --> H[页面组件<br/>Page Component]
+        H --> I[调用 getLocalizedData<br/>Call getLocalizedData]
+        I --> J{数据类型判断<br/>Data type check}
+        J -->|文本数据<br/>Text data| K[从 translations 获取<br/>Get from translations]
+        J -->|简历数据<br/>Resume data| L[从 translations.resume 获取<br/>Get from translations.resume]
+        J -->|项目数据<br/>Portfolio data| M[从 portfolio.ts 获取<br/>Get from portfolio.ts]
+        J -->|静态数据<br/>Static data| N[硬编码数据<br/>Hardcoded data]
+        K --> O[组装最终数据<br/>Assemble final data]
+        L --> O
+        M --> O
+        N --> O
+        O --> P[返回页面数据<br/>Return page data]
+        P --> Q[生成HTML<br/>Generate HTML]
+    end
+    
+    subgraph CLIENT["💻 Client-Side Hydration"]
+        Q --> R[发送到浏览器<br/>Send to browser]
+        R --> S[React水合<br/>React hydration]
+        S --> T[渲染组件<br/>Render components]
+        T --> U[用户交互<br/>User interaction]
+        U -->|语言切换<br/>Language switch| V[客户端路由<br/>Client routing]
+        V --> B
+    end
 
-### 3. 国际化数据配置 (localizedData.tsx)
-- **用途**: 处理多语言支持的数据
-- **内容**: heroData, aboutData, education, experience
-- **特点**: 
-  - 使用 `getLocalizedData(locale)` 函数
-  - 根据语言返回相应数据
-  - 导入 data.tsx 中的静态数据
+    style A fill:#e1f5fe
+    style H fill:#f3e5f5
+    style I fill:#fff3e0
+    style O fill:#e8f5e8
+    style T fill:#fce4ec
+```
 
-### 4. 个人信息 (personalData.json)
-- **用途**: 存储基础个人信息
-- **格式**: JSON
-- **内容**: 联系方式、基本信息等
+### 数据加载优先级 / Data Loading Priority
+1. **语言检测** - URL路径 → Cookie偏好 → 默认语言(en)
+2. **翻译加载** - 根据语言加载对应的translations
+3. **数据组装** - 合并静态数据与翻译数据
+4. **组件渲染** - 传递最终数据到React组件
 
-## 如何添加/修改数据 / How to Add/Modify Data
-
-### 添加新的 Portfolio 项目
-
-1. **添加项目图片**:
-   ```bash
-   # 将图片放入此目录
-   src/images/portfolio/your-project.png
-   ```
-
-2. **更新 data.tsx**:
-   ```typescript
-   // 1. 导入图片
-   import yourProjectImage from "../images/portfolio/your-project.png";
-   
-   // 2. 添加到 portfolioItems 数组
-   export const portfolioItems: PortfolioItem[] = [
-     // ... 现有项目
-     {
-       title: "Your Project Name",
-       description: "项目描述",
-       url: "https://github.com/your-repo",
-       image: yourProjectImage,
-     },
-   ];
-   ```
-
-3. **自动显示**: 数据会自动在网站的 Portfolio 部分显示
-
-### 修改 Hero 部分
-
-在 `localizedData.tsx` 的 `getLocalizedData` 函数中修改 `heroData`:
-
+### 关键函数调用链 / Key Function Call Chain
 ```typescript
-const heroData: Hero = {
-  imageSrc: heroImage,
-  name: t.hero.name, // 从翻译文件获取
-  description: (
-    // JSX 内容
-  ),
-  actions: [
-    {
-      href: "你的简历链接",
-      text: t.hero.resumeButton,
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
-  ],
+middleware() → request.ts → getTranslations() → getLocalizedData() → Components
+```
+
+## 🌍 I18n (Internationalization)
+
+### 支持的语言 / Supported Languages
+| 语言 | 代码 | 状态 | 示例路径 |
+|------|------|------|----------|
+| English | `en` | ✅ 默认 | `/en/` |
+| Deutsch | `de` | ✅ 完整 | `/de/` |
+| 中文 | `zh` | ✅ 完整 | `/zh/` |
+
+### 多语言架构 / Multilingual Architecture
+
+#### 1. 路由层 (Route Level)
+```typescript
+// middleware.ts
+const locales = ['en', 'de', 'zh'];
+const defaultLocale = 'en';
+
+// URL结构: /{locale}/{page}
+// 例如: /en/, /de/about, /zh/portfolio
+```
+
+#### 2. 配置层 (Configuration Level)  
+```typescript
+// i18n/request.ts
+export default getRequestConfig(async ({locale}) => {
+  return {
+    locale: locale || "en",
+    messages: getTranslations(locale),
+  };
+});
+```
+
+#### 3. 数据层 (Data Level)
+```typescript
+// translations.ts - 文本和简历数据
+export const translations: Record<string, Translations> = {
+  en: { meta: {...}, hero: {...}, resume: {...} },
+  de: { meta: {...}, hero: {...}, resume: {...} },
+  zh: { meta: {...}, hero: {...}, resume: {...} }
 };
+
+// localizedData.tsx - 数据组装
+export function getLocalizedData(locale: string) {
+  const t = getTranslations(locale);
+  // 组装所有页面数据...
+}
 ```
 
-### 修改 About 部分
+### 添加新语言 / Adding New Languages
 
-在 `localizedData.tsx` 中修改 `aboutData`:
-
+1. **更新语言列表**:
 ```typescript
-const aboutData: About = {
-  profileImageSrc: profilepic,
-  description: t.about.description,
-  aboutItems: [
-    {label: t.about.location, text: "你的位置", Icon: MapIcon},
-    // ... 其他项目
-  ],
-};
+// middleware.ts
+const locales = ['en', 'de', 'zh', 'fr']; // 添加法语
 ```
 
-### 添加 Resume 经历
-
-在 `localizedData.tsx` 中修改 `education` 或 `experience` 数组:
-
+2. **添加翻译数据**:
 ```typescript
-const experience: TimelineItem[] = [
-  {
-    date: "2024 - Present",
-    location: "公司名称",
-    title: "职位名称",
-    content: (
-      <p>
-        工作描述
-      </p>
-    ),
-  },
-  // ... 其他经历
-];
-```
-
-## 组件与数据的对应关系 / Component-Data Mapping
-
-| 组件 (Component) | 数据源 (Data Source) | 说明 (Description) |
-|------------------|---------------------|-------------------|
-| Hero | `localizedData.tsx` → heroData | 首页横幅部分 |
-| About | `localizedData.tsx` → aboutData | 关于我部分 |
-| Portfolio | `localizedData.tsx` → portfolioItems | 项目展示部分 |
-| Resume | `localizedData.tsx` → education, experience | 简历部分 |
-| Footer | `localizedData.tsx` → socialLinks | 页脚社交链接 |
-
-## 国际化支持 / Internationalization
-
-### 支持的语言
-- 英语 (en)
-- 德语 (de) 
-- 中文 (zh)
-
-### 添加翻译文本
-在 `src/i18n/translations.ts` 中添加新的翻译键值:
-
-```typescript
+// translations.ts
 export const translations = {
-  en: {
-    // 英文翻译
-    yourNewKey: "Your English Text",
-  },
-  de: {
-    // 德文翻译
-    yourNewKey: "Ihr deutscher Text",
-  },
-  zh: {
-    // 中文翻译
-    yourNewKey: "你的中文文本",
-  },
+  // ... 现有语言
+  fr: {
+    meta: { title: "Hanbin Chen - Portfolio Personnel", ... },
+    hero: { name: "Je suis Hanbin Chen.", ... },
+    // ... 完整翻译
+  }
 };
 ```
 
-### 在组件中使用翻译
+3. **测试多语言路由**:
+- `/fr/` - 法语首页
+- `/fr/portfolio` - 法语项目页面
+
+### 最佳实践 / Best Practices
+
+#### ✅ 推荐做法
+- 所有用户可见文本通过 `translations.ts` 管理
+- 复杂数据结构(如简历)也使用i18n模式
+- 图片和URL等语言无关数据可以共享
+- 使用TypeScript确保翻译完整性
+
+#### ❌ 避免做法  
+- 在组件中硬编码多语言文本
+- 混合使用不同的国际化方案
+- 忘记为新文本添加所有语言的翻译
+- 在 `localizedData.tsx` 中重复语言数据
+
+### 组件使用示例 / Component Usage Example
 ```typescript
-const t = getTranslations(locale);
-const text = t.yourNewKey;
+// 在页面组件中
+export default function HomePage({ params: { locale } }) {
+  const data = getLocalizedData(locale);
+  
+  return (
+    <div>
+      <Hero data={data.heroData} />
+      <About data={data.aboutData} />
+      <Portfolio items={data.portfolioItems} />
+      <Resume 
+        education={data.education} 
+        experience={data.experience} 
+      />
+    </div>
+  );
+}
 ```
-
-## 最佳实践 / Best Practices
-
-1. **图片优化**: 使用 WebP 或 PNG 格式，控制文件大小
-2. **类型安全**: 始终使用 TypeScript 类型定义
-3. **数据分离**: 静态数据放在 `data.tsx`，国际化数据放在 `localizedData.tsx`
-4. **命名规范**: 使用驼峰命名法，保持一致性
-5. **内容更新**: 修改数据后运行 `pnpm build` 验证
-
-## 常见问题 / Common Issues
-
-### Q: 为什么我的 Portfolio 项目没有显示？
-A: 检查以下几点:
-1. 图片是否正确导入到 `data.tsx`
-2. 项目是否添加到 `portfolioItems` 数组
-3. `localizedData.tsx` 是否正确引用了 `data.tsx` 的数据
-
-### Q: 如何修改网站标题和描述？
-A: 在 `localizedData.tsx` 的 `homePageMeta` 中修改，或在翻译文件中修改相应的文本。
-
-### Q: 新添加的翻译文本没有生效？
-A: 确保在 `src/i18n/translations.ts` 中为所有支持的语言都添加了相应的翻译。
-
-## 部署注意事项 / Deployment Notes
-
-- 修改数据后需要重新构建: `pnpm build`
-- 确保所有图片文件都已提交到版本控制
-- 验证所有语言版本都正常显示

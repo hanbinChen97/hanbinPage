@@ -12,14 +12,13 @@ import GithubIcon from "../components/Icon/GithubIcon";
 import GitLabIcon from "../components/Icon/GitLabIcon";
 import HuggingfaceIcon from "../components/Icon/HuggingfaceIcon";
 import LinkedInIcon from "../components/Icon/LinkedInIcon";
-import {getTranslations} from "../i18n/translations";
+import {getTranslations, TimelineItemData} from "../i18n/translations";
 import profilepic from "../images/chen.jpeg";
 import heroImage from "../images/header-background.webp";
 import {
   About,
   Hero,
   HomepageMeta,
-  SkillGroup,
   Social,
   TimelineItem,
 } from "./dataDef";
@@ -33,7 +32,6 @@ export const SectionId = {
   About: "about",
   Portfolio: "portfolio",
   Resume: "resume",
-  Skills: "skills",
   Stats: "stats",
 } as const;
 
@@ -113,107 +111,7 @@ export function getLocalizedData(locale: string) {
     ],
   };
 
-  /**
-   * Skills section
-   */
-  const skills: SkillGroup[] = [
-    {
-      name: t.skills.programmingLanguages,
-      skills: [
-        {
-          name: "Java",
-          level: 9,
-        },
-        {
-          name: "Kotlin",
-          level: 8,
-        },
-        {
-          name: "Python",
-          level: 7,
-        },
-        {
-          name: "TypeScript",
-          level: 6,
-        },
-        {
-          name: "JavaScript",
-          level: 6,
-        },
-        {
-          name: "SQL",
-          level: 7,
-        },
-      ],
-    },
-    {
-      name: t.skills.frameworks,
-      skills: [
-        {
-          name: "Spring Boot",
-          level: 8,
-        },
-        {
-          name: "React",
-          level: 6,
-        },
-        {
-          name: "Next.js",
-          level: 5,
-        },
-        {
-          name: "TensorFlow",
-          level: 6,
-        },
-        {
-          name: "PyTorch",
-          level: 6,
-        },
-      ],
-    },
-    {
-      name: t.skills.databases,
-      skills: [
-        {
-          name: "PostgreSQL",
-          level: 7,
-        },
-        {
-          name: "MySQL",
-          level: 7,
-        },
-        {
-          name: "MongoDB",
-          level: 6,
-        },
-        {
-          name: "Redis",
-          level: 5,
-        },
-      ],
-    },
-    {
-      name: t.skills.tools,
-      skills: [
-        {
-          name: "Docker",
-          level: 7,
-        },
-        {
-          name: "Git",
-          level: 8,
-        },
-        {
-          name: "AWS",
-          level: 6,
-        },
-        {
-          name: "IntelliJ IDEA",
-          level: 9,
-        },
-      ],
-    },
-  ];
+
 
   /**
    * Portfolio section - using shared data from portfolio.ts
@@ -236,199 +134,17 @@ export function getLocalizedData(locale: string) {
     </ul>
   );
 
-  const resumeContent: Record<
-    string,
-    { education: TimelineItem[]; experience: TimelineItem[] }
-  > = {
-    en: {
-      education: [
-        {
-          date: "2020 - 2025",
-          location: "RWTH Aachen University",
-          title: "M.Sc. Computer Science",
-          content: createKeywordContent([
-            "AI & Machine Learning Focus",
-            "Medical LLM Research",
-            "Knowledge Graph Construction",
-            "Healthcare NLP",
-          ]),
-        },
-        {
-          date: "2017 - 2020",
-          location: "University of Applied Sciences",
-          title: "B.Sc. Computer Science",
-          content: createKeywordContent([
-            "Process Mining Thesis",
-            "Healthcare Workflow Optimization",
-            "Software Engineering Fundamentals",
-            "Database Systems",
-            "Algorithm Design",
-          ]),
-        },
-      ],
-      experience: [
-        {
-          date: "2024 - Present",
-          location: "RWTH Aachen University",
-          title: "Research Assistant",
-          content: createKeywordContent([
-            "Medical Knowledge Extraction",
-            "LLM Reasoning",
-            "Automated Knowledge Graphs",
-            "Clinical NLP Pipelines",
-          ]),
-        },
-        {
-          date: "2023 - 2024",
-          location: "Tech Startup",
-          title: "Software Developer",
-          content: createKeywordContent([
-            "Java Spring Boot Services",
-            "Kotlin Microservices",
-            "Database Integration",
-            "CI/CD Automation",
-          ]),
-        },
-        {
-          date: "2022 - 2023",
-          location: "University Research Lab",
-          title: "Student Research Assistant",
-          content: createKeywordContent([
-            "Process Mining Analysis",
-            "Python Tooling",
-            "Healthcare Data Insights",
-            "Academic Publications",
-          ]),
-        },
-      ],
-    },
-    de: {
-      education: [
-        {
-          date: "2020 - 2025",
-          location: "RWTH Aachen University",
-          title: "M.Sc. Informatik",
-          content: createKeywordContent([
-            "Schwerpunkt KI & Machine Learning",
-            "Forschung zu medizinischen LLMs",
-            "Wissensgraph-Aufbau",
-            "Healthcare NLP",
-          ]),
-        },
-        {
-          date: "2017 - 2020",
-          location: "Fachhochschule",
-          title: "B.Sc. Informatik",
-          content: createKeywordContent([
-            "Prozess-Mining Abschlussarbeit",
-            "Optimierung klinischer Abläufe",
-            "Software Engineering Grundlagen",
-            "Datenbanksysteme",
-            "Algorithmendesign",
-          ]),
-        },
-      ],
-      experience: [
-        {
-          date: "2024 - Heute",
-          location: "RWTH Aachen University",
-          title: "Wissenschaftlicher Mitarbeiter",
-          content: createKeywordContent([
-            "Medizinische Wissensextraktion",
-            "LLM-Reasoning",
-            "Automatisierte Wissensgraphen",
-            "Klinische NLP-Pipelines",
-          ]),
-        },
-        {
-          date: "2023 - 2024",
-          location: "Tech Startup",
-          title: "Softwareentwickler",
-          content: createKeywordContent([
-            "Java Spring Boot Services",
-            "Kotlin Microservices",
-            "Datenbankintegration",
-            "CI/CD Automatisierung",
-          ]),
-        },
-        {
-          date: "2022 - 2023",
-          location: "Universitäts-Forschungslabor",
-          title: "Studentische Hilfskraft",
-          content: createKeywordContent([
-            "Prozess-Mining Analysen",
-            "Python Werkzeuge",
-            "Gesundheitsdaten Insights",
-            "Wissenschaftliche Publikationen",
-          ]),
-        },
-      ],
-    },
-    zh: {
-      education: [
-        {
-          date: "2020 - 2025",
-          location: "亚琛工业大学",
-          title: "计算机科学硕士",
-          content: createKeywordContent([
-            "人工智能与机器学习方向",
-            "医疗大模型研究",
-            "知识图谱构建",
-            "医疗场景NLP",
-          ]),
-        },
-        {
-          date: "2017 - 2020",
-          location: "应用科学大学",
-          title: "计算机科学学士",
-          content: createKeywordContent([
-            "流程挖掘毕业课题",
-            "医疗流程优化",
-            "软件工程基础",
-            "数据库系统",
-            "算法设计",
-          ]),
-        },
-      ],
-      experience: [
-        {
-          date: "2024 - 至今",
-          location: "亚琛工业大学",
-          title: "科研助理",
-          content: createKeywordContent([
-            "医疗知识抽取",
-            "大模型推理",
-            "自动化知识图谱",
-            "临床NLP流程",
-          ]),
-        },
-        {
-          date: "2023 - 2024",
-          location: "科技初创公司",
-          title: "软件开发工程师",
-          content: createKeywordContent([
-            "Java Spring Boot服务",
-            "Kotlin微服务",
-            "数据库集成",
-            "CI/CD自动化",
-          ]),
-        },
-        {
-          date: "2022 - 2023",
-          location: "大学研究实验室",
-          title: "学生科研助理",
-          content: createKeywordContent([
-            "流程挖掘分析",
-            "Python工具开发",
-            "医疗数据洞察",
-            "学术发表",
-          ]),
-        },
-      ],
-    },
+  const createTimelineItems = (items: TimelineItemData[]): TimelineItem[] => {
+    return items.map(item => ({
+      date: item.date,
+      location: item.location,
+      title: item.title,
+      content: createKeywordContent(item.keywords),
+    }));
   };
 
-  const {education, experience} = resumeContent[locale] || resumeContent.en;
+  const education = createTimelineItems(t.resume.educationItems);
+  const experience = createTimelineItems(t.resume.experienceItems);
 
   /**
    * Social items
@@ -460,7 +176,6 @@ export function getLocalizedData(locale: string) {
     homePageMeta,
     heroData,
     aboutData,
-    skills,
     portfolioItems,
     education,
     experience,

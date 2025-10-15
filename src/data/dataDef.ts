@@ -58,20 +58,7 @@ export interface Stat {
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
 }
 
-/**
- * Skills section
- */
 
-export interface Skill {
-  name: string;
-  level: number;
-  max?: number;
-}
-
-export interface SkillGroup {
-  name: string;
-  skills: Skill[];
-}
 
 /**
  * Portfolio section

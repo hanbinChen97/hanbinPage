@@ -18,7 +18,6 @@ import {
   About,
   Hero,
   HomepageMeta,
-  SkillGroup,
   Social,
   TimelineItem,
 } from "./dataDef";
@@ -40,7 +39,6 @@ export const SectionId = {
   About: "about",
   Portfolio: "portfolio",
   Resume: "resume",
-  Skills: "skills",
   Stats: "stats",
 } as const;
 
@@ -104,79 +102,7 @@ export const aboutData: About = {
   ],
 };
 
-/**
- * Skills section
- */
-export const skills: SkillGroup[] = [
-  {
-    name: "Languages",
-    skills: [
-      {
-        name: "English",
-        level: 9,
-      },
-      {
-        name: "German",
-        level: 6,
-      },
-      {
-        name: "Chinese",
-        level: 10,
-      },
-    ],
-  },
-  {
-    name: "Programming Languages",
-    skills: [
-      {
-        name: "Python",
-        level: 9,
-      },
-      {
-        name: "Java",
-        level: 8,
-      },
-      {
-        name: "Kotlin",
-        level: 8,
-      },
-    ],
-  },
-  {
-    name: "Technologies",
-    skills: [
-      {
-        name: "Large Language Models",
-        level: 8,
-      },
-      {
-        name: "Machine Learning",
-        level: 9,
-      },
-      {
-        name: "React",
-        level: 7,
-      },
-    ],
-  },
-  {
-    name: "Tools & Frameworks",
-    skills: [
-      {
-        name: "Git",
-        level: 9,
-      },
-      {
-        name: "Docker",
-        level: 7,
-      },
-      {
-        name: "UMLS",
-        level: 6,
-      },
-    ],
-  },
-];
+
 
 export {portfolioItems};
 
