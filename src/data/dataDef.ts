@@ -58,8 +58,6 @@ export interface Stat {
   Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref">>;
 }
 
-
-
 /**
  * Portfolio section
  */

@@ -13,7 +13,7 @@ interface HeroProps {
 
 /**
  * Hero Section Component - 主页面英雄区域组件
- * 
+ *
  * 布局描述 (Layout Description):
  * - 全屏高度 (h-screen) 的主容器，相对定位用于层叠背景图片和内容
  * - 背景层：全屏背景图片，使用 Next.js Image 组件进行优化，z-index: 0
@@ -24,11 +24,11 @@ interface HeroProps {
  *   - 社交媒体链接组件
  *   - 操作按钮组 (主要和次要按钮)
  * - 底部导航：绝对定位的向下箭头按钮，指向 About 部分
- * 
+ *
  * 响应式设计：
  * - 移动端：较小的文字尺寸和间距
  * - 桌面端：更大的文字和更宽的最大宽度 (max-w-screen-lg)
- * 
+ *
  * @param props - 组件属性
  * @param props.locale - 当前语言区域设置，用于获取本地化数据
  * @returns 渲染的 Hero 区域组件
@@ -54,11 +54,11 @@ const Hero: FC<HeroProps> = memo(({locale}) => {
             </h1>
 
             {description}
-            
+
             <div className="flex gap-x-4 text-neutral-100">
               <Socials locale={locale} />
             </div>
-            
+
             <div className="flex w-full justify-center gap-x-4">
               {actions.map(({href, text, primary, Icon}) => (
                 <a

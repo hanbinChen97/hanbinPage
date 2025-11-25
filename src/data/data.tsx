@@ -14,13 +14,7 @@ import HuggingfaceIcon from "../components/Icon/HuggingfaceIcon";
 import LinkedInIcon from "../components/Icon/LinkedInIcon";
 import profilepic from "../images/chen.jpeg";
 import heroImage from "../images/header-background.webp";
-import {
-  About,
-  Hero,
-  HomepageMeta,
-  Social,
-  TimelineItem,
-} from "./dataDef";
+import {About, Hero, HomepageMeta, Social, TimelineItem} from "./dataDef";
 import {portfolioItems} from "./portfolio";
 
 /**
@@ -101,8 +95,6 @@ export const aboutData: About = {
     },
   ],
 };
-
-
 
 export {portfolioItems};
 

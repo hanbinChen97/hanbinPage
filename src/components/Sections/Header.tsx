@@ -74,6 +74,9 @@ const DesktopNav: FC<{
               section={section}
             />
           ))}
+          <Link className={inactiveClass} href={`/${locale}/games`}>
+            Gallery
+          </Link>
         </div>
         <LanguageSwitcher />
       </nav>
@@ -148,6 +151,13 @@ const MobileNav: FC<{
                     section={section}
                   />
                 ))}
+                <Link
+                  className={inactiveClass}
+                  href={`/${locale}/games`}
+                  onClick={toggleOpen}
+                >
+                  Gallery
+                </Link>
                 <div className="mt-4 px-2">
                   <LanguageSwitcher />
                 </div>
