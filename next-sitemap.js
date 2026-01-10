@@ -1,6 +1,7 @@
 /* eslint-env node */
 module.exports = {
   siteUrl: 'reactresume.com',
+  basePath: '/test-vitepress',
   exclude: ['/404*', '/500*'],
   transform: async (config, path) => {
     return {

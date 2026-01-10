@@ -34,6 +34,9 @@ const nextConfig = {
       },
     ],
   },
+  basePath: '/test-vitepress',
+  output: 'export',
+  distDir: 'docs',
 };
 
 module.exports = nextConfig;
